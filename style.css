@@ -11,7 +11,7 @@
   }
   
   .container {
-    max-width: 800px;
+    max-width: 100%;
     margin: auto;
     padding: 20px;
     background-color: white;
@@ -24,17 +24,22 @@
   }
   
   .max-scores {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
     margin-bottom: 20px;
   }
   
   .max-scores label {
     font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
   }
   
   .max-scores input {
-    width: 70px;
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
   }
   
   table {
@@ -63,6 +68,10 @@
     cursor: pointer;
     margin-top: 10px;
     font-size: 16px;
+    width: 100%;
+    max-width: 200px;
+    margin-left: auto;
+    margin-right: auto;
   }
   
   button:hover {
@@ -72,5 +81,49 @@
   button:disabled {
     background-color: #ddd;
     cursor: not-allowed;
+  }
+  
+  /* Media Queries for responsiveness */
+  
+  /* On small devices (mobile, portrait tablets) */
+  @media (max-width: 600px) {
+    body {
+      padding: 10px;
+    }
+  
+    .container {
+      padding: 15px;
+    }
+  
+    .max-scores {
+      grid-template-columns: 1fr;
+    }
+  
+    table {
+      font-size: 14px;
+    }
+  
+    button {
+      width: 100%;
+      margin-top: 10px;
+    }
+  }
+  
+  /* On medium devices (landscape tablets, small desktops) */
+  @media (max-width: 1024px) {
+    table {
+      font-size: 16px;
+    }
+  }
+  
+  /* For larger screens like laptops and desktops */
+  @media (min-width: 1025px) {
+    .max-scores {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  
+    button {
+      width: auto;
+    }
   }
   
